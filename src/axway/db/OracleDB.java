@@ -1,5 +1,7 @@
 package axway.db;
 
+import java.sql.Connection;
+
 import javax.naming.*;
 import javax.sql.*;
 
@@ -30,5 +32,17 @@ public class OracleDB {
 		return oracle_ds;
 	}
 	
+	
+	protected static Connection databaseConnection() {
+		Connection conn = null;
+		try {
+			conn = OracleDS().getConnection();
+			return conn;
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
 	
 }
