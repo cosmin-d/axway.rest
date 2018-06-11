@@ -12,7 +12,7 @@ public class OracleDB {
 	
 	public static DataSource OracleDS() throws Exception {
 		
-		if(oracle_ds != null)
+		if(oracle_ds != null)//oracle_ds is static --> optimisation
 			return oracle_ds;
 		
 		try {
@@ -28,12 +28,12 @@ public class OracleDB {
 			e.printStackTrace();
 		}
 		
-		oracle_ds = (DataSource) context.lookup("axwaydb");
+		oracle_ds = (DataSource) context.lookup("axwaydb");//database is referenced as 'axwaydb'
 		return oracle_ds;
 	}
 	
 	
-	protected static Connection databaseConnection() {
+	protected static Connection databaseConnection() {  //--> another optimisation 
 		Connection conn = null;
 		try {
 			conn = OracleDS().getConnection();

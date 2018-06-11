@@ -26,7 +26,7 @@ public class V1_readStudents {
 	
 	try {
 		conn = OracleDB.OracleDS().getConnection();
-		query =conn.prepareStatement("select * from STUDENT");
+		query =conn.prepareStatement("select * from STUDENT"); // not recommended for production code 
 		
 		ResultSet rs = query.executeQuery();
 		

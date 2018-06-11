@@ -45,7 +45,7 @@ public class V1_status {
 				myString = rs.getString("DATETIME");
 			}
 			
-			query.close();//close connection
+			query.close();
 		}
 		
 		catch (Exception e) {
@@ -53,7 +53,7 @@ public class V1_status {
 		}
 		finally {
 			if(conn != null)
-				conn.close();
+				conn.close();//close connection
 			}
 		returnString = "<p>Database status</p>" + 
 		"<p>Database Date/Time return: " + myString + "</p>";

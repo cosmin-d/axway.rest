@@ -1,8 +1,6 @@
 package axway.rest.crud;
 
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
 import javax.ws.rs.PathParam;
@@ -24,11 +22,10 @@ public class V2_searchCourse {
 				throws Exception {
 		
 		String returnString = null;
-		JSONArray json = new JSONArray();
 		
 		try {
 			
-			//return a error is brand is missing from the url string
+			//return an error if parameters are  missing from the url string
 			if(denumire == null) {
 				return Response.status(400).entity("Error: please enter /denumire").build();
 			}

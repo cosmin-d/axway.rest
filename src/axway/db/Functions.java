@@ -7,7 +7,7 @@ import org.codehaus.jettison.json.JSONArray;
 import axway.rest.util.*;
 
 public class Functions extends OracleDB {
-
+//this function searches for a student and returns all courses he is participating at 
 	public JSONArray queryByStudent (String nume_student, String prenume_student) throws Exception {
 		
 		PreparedStatement query = null;
@@ -60,7 +60,7 @@ public class Functions extends OracleDB {
 	
 }
 	
-	
+	//this function searches for a course name and returns all students enrolled at that respective course
 public JSONArray queryByCourse (String denumire) throws Exception {
 		
 		PreparedStatement query = null;
@@ -100,6 +100,7 @@ public JSONArray queryByCourse (String denumire) throws Exception {
 			sqlError.printStackTrace();
 			return json;
 		}
+		
 		catch(Exception e) {
 			e.printStackTrace();
 			return json;
@@ -111,6 +112,35 @@ public JSONArray queryByCourse (String denumire) throws Exception {
 		return json;
 	
 }
+
+//this function inserts a student into STUDENT table
+public int insterStudent(String nume, String prenume) throws Exception {
+	
+	PreparedStatement query = null;
+	Connection conn = null;
+	
+	try {
+		//data validation needed 
+		
+		conn = databaseConnection();
+		query = conn.prepareStatement("insert into STUDENT (ID, NUME, PRENUME) VALUES (STUDENT_SEQ.nextval, ?, ?)");
+		
+		query.setString(1, nume);
+		query.setString(2, prenume);
+		query.executeUpdate();
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+		return 500;
+	}
+	finally {
+		if (conn != null) conn.close();
+	}
+	
+	return 200;
+}
+
+
 }
 	
 	

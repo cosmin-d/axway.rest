@@ -7,6 +7,22 @@ import java.sql.ResultSet;
 
 import org.owasp.esapi.ESAPI;
 
+
+
+
+
+
+	//THIS CODE DOES NOT BELONG TO ME
+	// THIS CODE DOES NOT BELONG TO ME
+	// THIS CODE DOES NOT BELONG TO ME
+	// THIS CODE DOES NOT BELONG TO ME
+	// THIS CODE DOES NOT BELONG TO ME
+
+
+
+
+
+	
 /**
  * This utility will convert a database data into JSON format.
  * Note:  this java class requires the ESAPI 1.4.4 jar file
@@ -29,6 +45,7 @@ public class ToJSON {
 	 * @return - JSON array
 	 * @throws Exception
 	 */
+	
 	public JSONArray toJSONArray(ResultSet rs) throws Exception {
 
         JSONArray json = new JSONArray(); //JSON array that will be returned

@@ -13,22 +13,22 @@ import axway.rest.util.*;
 import org.codehaus.jettison.json.JSONArray;
 
 
-@Path("/v1/read/courses")
+@Path("/v1/read/courses")  //api path
 public class V1_readCourses {
 	
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)//returns JSON
 	public Response returnCourses() throws Exception{
 		
-PreparedStatement query = null;
-Connection conn = null;
-String returnString = null;
-Response rb = null;
+		PreparedStatement query = null;
+		Connection conn = null;
+		String returnString = null;
+		Response rb = null;
 
 
 try {
 	conn = OracleDB.OracleDS().getConnection();
-	query =conn.prepareStatement("select * from CURS");
+	query =conn.prepareStatement("select * from CURS");//using * in sql queries is not recommended for production code 
 	
 	ResultSet rs = query.executeQuery();
 	
@@ -44,7 +44,7 @@ try {
 catch(Exception e) {
 	e.printStackTrace();
 }
-finally {
+finally {              		//connection must be closed every time
 	if(conn != null)
 		conn.close();
 }
