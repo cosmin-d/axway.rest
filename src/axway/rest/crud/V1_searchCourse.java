@@ -13,7 +13,7 @@ import org.codehaus.jettison.json.JSONArray;
 import axway.db.Functions;
 
 @Path("/v2/search/course")
-public class V2_searchCourse {
+public class V1_searchCourse {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

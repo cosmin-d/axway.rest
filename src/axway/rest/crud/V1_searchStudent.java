@@ -12,7 +12,7 @@ import org.codehaus.jettison.json.JSONArray;
 import axway.db.Functions;
 
 @Path("/v2/search/student")
-public class V2_searchStudent {
+public class V1_searchStudent {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response returnBrandParts(

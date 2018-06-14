@@ -128,6 +128,7 @@ public int insertStudent(String nume, String prenume) throws Exception {
 		query.setString(1, nume);
 		query.setString(2, prenume);
 		query.executeUpdate();
+		query.close();
 		
 	} catch(Exception e) {
 		e.printStackTrace();
@@ -154,6 +155,7 @@ public int insertCourse(String denumire) throws Exception {
 		
 		query.setString(1, denumire);
 		query.executeUpdate();
+		query.close();
 		
 	} catch(Exception e) {
 		e.printStackTrace();
@@ -181,6 +183,7 @@ public int insertStudent_to_Course(String id_student, String id_curs) throws Exc
 		query.setString(1, id_student);
 		query.setString(2, id_curs);
 		query.executeUpdate();
+		query.close();
 		
 	} catch(Exception e) {
 		e.printStackTrace();
@@ -209,6 +212,7 @@ public int updateStudent(int id, String nume, String prenume) throws Exception {
 		query.setString(2, prenume);
 		query.setInt(3, id);
 		query.executeUpdate();
+		query.close();
 		
 	} catch(Exception e) {
 		e.printStackTrace();
@@ -236,6 +240,7 @@ public int updateCourse(int id, String denumire) throws Exception {
 		query.setString(1, denumire);
 		query.setInt(2, id);
 		query.executeUpdate();
+		query.close();
 		
 	} catch(Exception e) {
 		e.printStackTrace();
@@ -248,6 +253,66 @@ public int updateCourse(int id, String denumire) throws Exception {
 	return 200;
 }
 
+public int deleteStudent(int id) throws Exception {
+	
+	PreparedStatement query = null;
+	PreparedStatement query1 = null;
+	Connection conn = null;
+	
+	try {
+				//data validation needed
+		
+		conn = databaseConnection();
+		query = conn.prepareStatement("delete from STUDENT where ID = ? ");
+		query1= conn.prepareStatement("delete from STUDENT_CURS where ID_STUDENT = ?");
+		query.setInt(1, id);
+		query1.setInt(1, id);
+		query.executeUpdate();
+		query1.executeUpdate();
+		query.close();
+		query1.close();
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+		return 500;
+	}
+	finally {
+		if (conn != null) conn.close();
+	}
+	
+	return 200;
+}
+
+
+public int deleteCourse(int id) throws Exception {
+	
+	PreparedStatement query = null;
+	PreparedStatement query1 = null;
+	Connection conn = null;
+	
+	try {
+				//data validation needed
+		
+		conn = databaseConnection();
+		query = conn.prepareStatement("delete from CURS where ID = ? ");
+		query1= conn.prepareStatement("delete from STUDENT_CURS where ID_CURS = ?");
+		query.setInt(1, id);
+		query1.setInt(1, id);
+		query.executeUpdate();
+		query1.executeUpdate();
+		query.close();
+		query1.close();
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+		return 500;
+	}
+	finally {
+		if (conn != null) conn.close();
+	}
+	
+	return 200;
+}
 }
 	
 	

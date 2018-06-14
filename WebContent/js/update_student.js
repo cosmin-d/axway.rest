@@ -22,7 +22,6 @@ $(document).ready(function() {
 	
 	$update_form.submit(function(e) {
 		e.preventDefault(); //cancel form submit
-		console.log($SET_NUME.text());
 		var obj = $update_form.serializeObject()
 			, NUME = $SET_NUME.text()
 			, PRENUME = $SET_PRENUME.text()
