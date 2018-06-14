@@ -194,6 +194,60 @@ public int insertStudent_to_Course(String id_student, String id_curs) throws Exc
 }
 
 
+public int updateStudent(int id, String nume, String prenume) throws Exception {
+	
+	PreparedStatement query = null;
+	Connection conn = null;
+	
+	try {
+			//data validation needed
+		
+		conn = databaseConnection();
+		query = conn.prepareStatement("update STUDENT set NUME = ?, PRENUME = ? where ID = ? ");
+		
+		query.setString(1, nume);
+		query.setString(2, prenume);
+		query.setInt(3, id);
+		query.executeUpdate();
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+		return 500;
+	}
+	finally {
+		if (conn != null) conn.close();
+	}
+	
+	return 200;
+}
+
+
+public int updateCourse(int id, String denumire) throws Exception {
+	
+	PreparedStatement query = null;
+	Connection conn = null;
+	
+	try {
+			//data validation needed
+		
+		conn = databaseConnection();
+		query = conn.prepareStatement("update CURS set DENUMIRE = ? where ID = ? ");
+		
+		query.setString(1, denumire);
+		query.setInt(2, id);
+		query.executeUpdate();
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+		return 500;
+	}
+	finally {
+		if (conn != null) conn.close();
+	}
+	
+	return 200;
+}
+
 }
 	
 	
