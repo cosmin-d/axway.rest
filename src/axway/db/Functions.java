@@ -166,6 +166,34 @@ public int insertCourse(String denumire) throws Exception {
 	return 200; //success
 }
 
+
+public int insertStudent_to_Course(String id_student, String id_curs) throws Exception {
+	
+	PreparedStatement query = null;
+	Connection conn = null;
+	
+	try {
+		//data validation needed 
+		
+		conn = databaseConnection();
+		query = conn.prepareStatement("insert into STUDENT_CURS (ID_STUDENT, ID_CURS) VALUES (?, ?)");
+		
+		query.setString(1, id_student);
+		query.setString(2, id_curs);
+		query.executeUpdate();
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+		return 500; // something went wrong 
+	}
+	finally {
+		if (conn != null) conn.close();
+	}
+	
+	return 200; //success
+}
+
+
 }
 	
 	

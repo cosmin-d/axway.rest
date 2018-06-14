@@ -2,15 +2,15 @@ $(document).ready(function() {
 	
 	var $post_form = $('#post_form');
 
-	$('#submit_it2').click(function(e) {
+	$('#submit_it').click(function(e) {
 		e.preventDefault(); //cancel form submit
 		
-		var jsObj = $post_example.serializeObject()
+		var jsObj = $post_form.serializeObject()
 			, ajaxObj = {};
 		
 		ajaxObj = {  
 			type: "POST",
-			url: "http://localhost:7001/api/v2/insert/student", 
+			url: "http://localhost:7001/axway.rest/api/v2/insert/student", 
 			data: JSON.stringify(jsObj), 
 			contentType:"application/json",
 			error: function(jqXHR, textStatus, errorThrown) {
