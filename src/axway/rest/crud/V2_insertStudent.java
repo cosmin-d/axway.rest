@@ -19,7 +19,7 @@ public class V2_insertStudent {
 	@POST
 	@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response addPcParts2(String incomingData) throws Exception {
+	public Response insertStudent2(String incomingData) throws Exception {
 		
 		String returnString = null;
 		JSONArray jsonArray = new JSONArray();
@@ -28,11 +28,12 @@ public class V2_insertStudent {
 		
 		try {
 				
-			JSONObject partsData = new JSONObject(incomingData);
-			System.out.println( "jsonData: " + partsData.toString() );
+			JSONObject studentData = new JSONObject(incomingData);
 			
-			int http_code = fun.insterStudent(partsData.optString("NUME"), 
-												partsData.optString("PRENUME"));
+			System.out.println( "jsonData: " + studentData.toString() );
+			
+			int http_code = fun.insertStudent(studentData.optString("NUME"), 
+												studentData.optString("PRENUME"));
 
 			if( http_code == 200 ) { //making use of the HTTP protocol
 			
@@ -40,6 +41,7 @@ public class V2_insertStudent {
 				jsonObject.put("MSG", "Item has been entered successfully");
 
 				returnString = jsonArray.put(jsonObject).toString();
+				
 			} else {
 				return Response.status(500).entity("Unable to enter Item").build();
 			}

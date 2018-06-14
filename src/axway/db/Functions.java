@@ -114,7 +114,7 @@ public JSONArray queryByCourse (String denumire) throws Exception {
 }
 
 //this function inserts a student into STUDENT table
-public int insterStudent(String nume, String prenume) throws Exception {
+public int insertStudent(String nume, String prenume) throws Exception {
 	
 	PreparedStatement query = null;
 	Connection conn = null;
@@ -131,13 +131,13 @@ public int insterStudent(String nume, String prenume) throws Exception {
 		
 	} catch(Exception e) {
 		e.printStackTrace();
-		return 500;
+		return 500; // something went wrong 
 	}
 	finally {
 		if (conn != null) conn.close();
 	}
 	
-	return 200;
+	return 200; //success
 }
 
 
