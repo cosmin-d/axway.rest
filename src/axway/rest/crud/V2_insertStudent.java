@@ -19,6 +19,7 @@ public class V2_insertStudent {
 	@POST
 	@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
 	@Produces(MediaType.APPLICATION_JSON)
+	
 	public Response insertStudent2(String incomingData) throws Exception {
 		
 		String returnString = null;
@@ -31,6 +32,8 @@ public class V2_insertStudent {
 			JSONObject studentData = new JSONObject(incomingData);
 			
 			System.out.println( "jsonData: " + studentData.toString() );
+			
+			
 			
 			int http_code = fun.insertStudent(studentData.optString("NUME"), 
 												studentData.optString("PRENUME"));
