@@ -5,12 +5,12 @@ $(document).ready(function() {
 	$('#submit_it2').click(function(e) {
 		e.preventDefault(); //cancel form submit
 		
-		var jsObj = $post_example.serializeObject()
+		var jsObj = $post_form.serializeObject()
 			, ajaxObj = {};
 		
 		ajaxObj = {  
 			type: "POST",
-			url: "http://localhost:7001/api/v2/insert/student", 
+			url: "http://localhost:7001/axway.rest/api/v2/insert/course", 
 			data: JSON.stringify(jsObj), 
 			contentType:"application/json",
 			error: function(jqXHR, textStatus, errorThrown) {
