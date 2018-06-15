@@ -13,20 +13,20 @@ import org.codehaus.jettison.json.JSONObject;
 
 import axway.db.*;
 
-@Path("/v2/delete/course/{id}")
+		@Path("/v2/delete/course/{id}")
 
-public class V2_deleteCourse {
-@DELETE
-@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
-@Produces(MediaType.APPLICATION_JSON)
-public Response deleteItem(@PathParam("id") int id,
+	public class V2_deleteCourse {
+		@DELETE
+		@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
+		@Produces(MediaType.APPLICATION_JSON)
+	public Response deleteItem(@PathParam("id") int id,
 								String incomingData) 
 							throws Exception {
-	int http_code;
-	String returnString = null;
-	JSONArray jsonArray = new JSONArray();
-	JSONObject jsonObject = new JSONObject();
-	Functions fun = new Functions();
+		int http_code;
+		String returnString = null;
+		JSONArray jsonArray = new JSONArray();
+		JSONObject jsonObject = new JSONObject();
+		Functions fun = new Functions();
 	
 	try {
 		

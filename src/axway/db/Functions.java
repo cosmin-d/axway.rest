@@ -141,7 +141,7 @@ public int insertStudent(String nume, String prenume) throws Exception {
 	return 200; //success
 }
 
-
+//this function inserts an entry to CURS table
 public int insertCourse(String denumire) throws Exception {
 	
 	PreparedStatement query = null;
@@ -168,7 +168,7 @@ public int insertCourse(String denumire) throws Exception {
 	return 200; //success
 }
 
-
+//this funtion inserts an entry into STUDENT_CURS table
 public int insertStudent_to_Course(String id_student, String id_curs) throws Exception {
 	
 	PreparedStatement query = null;
@@ -196,7 +196,7 @@ public int insertStudent_to_Course(String id_student, String id_curs) throws Exc
 	return 200; //success
 }
 
-
+//this function updates an entry from STUDENT table
 public int updateStudent(int id, String nume, String prenume) throws Exception {
 	
 	PreparedStatement query = null;
@@ -225,7 +225,7 @@ public int updateStudent(int id, String nume, String prenume) throws Exception {
 	return 200;
 }
 
-
+//this function updates an entry from CURS table
 public int updateCourse(int id, String denumire) throws Exception {
 	
 	PreparedStatement query = null;
@@ -252,7 +252,7 @@ public int updateCourse(int id, String denumire) throws Exception {
 	
 	return 200;
 }
-
+//this function deletes an entry from STUDENT table and all the associated entries from STUDENT_CURS table 
 public int deleteStudent(int id) throws Exception {
 	
 	PreparedStatement query = null;
@@ -283,7 +283,7 @@ public int deleteStudent(int id) throws Exception {
 	return 200;
 }
 
-
+//this function deletes an entry from CURS table and all the associated entries from STUDENT_CURS table 
 public int deleteCourse(int id) throws Exception {
 	
 	PreparedStatement query = null;

@@ -13,12 +13,12 @@ import org.codehaus.jettison.json.JSONObject;
 
 import axway.db.*;
 
-@Path("/v2/update/course/{id}/")
-public class V2_updateCourse {
+		@Path("/v2/update/course/{id}/")
+	public class V2_updateCourse {
 
-	@PUT
-	@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
-	@Produces(MediaType.APPLICATION_JSON)
+			@PUT
+			@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
+			@Produces(MediaType.APPLICATION_JSON)
 	public Response updateItem(@PathParam("id") int id,
 									String incomingData) 
 								throws Exception {

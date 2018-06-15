@@ -15,11 +15,11 @@ import axway.db.*;
 
 @Path("/v2/delete/student/{id}")
 
-public class V2_deleteStudent {
-@DELETE
-@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
-@Produces(MediaType.APPLICATION_JSON)
-public Response deleteItem(@PathParam("id") int id,
+	public class V2_deleteStudent {
+		@DELETE
+		@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
+		@Produces(MediaType.APPLICATION_JSON)
+		public Response deleteItem(@PathParam("id") int id,
 								String incomingData) 
 							throws Exception {
 	int http_code;

@@ -42,7 +42,6 @@ function updateStudent(obj, id) {
 				console.log(jqXHR.responseText);
 			},
 			success: function(data) {
-				//console.log(data);
 				$('#update_response').text( data[0].MSG );
 			},
 			complete: function(XMLHttpRequest) {
@@ -68,18 +67,15 @@ function getStudents() {
 				console.log(jqXHR.responseText);
 			},
 			success: function(data) { 
-				//console.log(data);
 				var html_string = "";
 				
 				$.each(data, function(index1, val1) {
-					//console.log(val1);
 					html_string = html_string + templategetStudents(val1);
 				});
 				
 				$('#get_students').html("<table border='1'>" + html_string + "</table>");
 			},
 			complete: function(XMLHttpRequest) {
-				//console.log( XMLHttpRequest.getAllResponseHeaders() );
 			}, 
 			dataType: "json" //request JSON
 		};

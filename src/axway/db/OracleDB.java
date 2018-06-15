@@ -12,7 +12,7 @@ public class OracleDB {
 	
 	public static DataSource OracleDS() throws Exception {
 		
-		if(oracle_ds != null)//oracle_ds is static --> optimisation
+		if(oracle_ds != null)//oracle_ds is static --> trying to optimize 
 			return oracle_ds;
 		
 		try {
@@ -33,7 +33,7 @@ public class OracleDB {
 	}
 	
 	
-	protected static Connection databaseConnection() {  //--> another optimisation 
+	protected static Connection databaseConnection() {  //--> trying to optimize 
 		Connection conn = null;
 		try {
 			conn = OracleDS().getConnection();

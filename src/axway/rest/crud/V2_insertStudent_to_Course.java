@@ -12,7 +12,7 @@ import org.codehaus.jettison.json.JSONObject;
 import axway.db.*;
 
 
-@Path("/v2/insert/stc")
+	@Path("/v2/insert/stc")
 public class V2_insertStudent_to_Course {
 
 		@POST

@@ -13,7 +13,7 @@ import org.codehaus.jettison.json.JSONObject;
 import axway.db.*;
 
 
-@Path("/v2/insert/course")
+	@Path("/v2/insert/course")
 public class V2_insertCourse {
 
 	@POST
@@ -25,7 +25,7 @@ public class V2_insertCourse {
 		String returnString = null;
 		JSONArray jsonArray = new JSONArray();
 		JSONObject jsonObject = new JSONObject();
-		Functions fun = new Functions();
+		Functions fun = new Functions();	
 		
 		try {
 				
